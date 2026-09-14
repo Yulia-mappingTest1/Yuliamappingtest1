@@ -80,28 +80,28 @@ sun.addEventListener ("click", function() {
     // const note = pickRandomNote(sunNotes);
 
     // synth.triggerAttackRelease(note, "4n");
-    createFallingEmoji(sun,"☀");
+    createFallingEmoji(sun,"☀", sunNotes, "4n");
 });
 
 rain.addEventListener ("click", function() {
     // const note = pickRandomNote(rainNotes);
 
     // synth.triggerAttackRelease(note, "2n");
-    createFallingEmoji(rain, "💧");
+    createFallingEmoji(rain, "💧", rainNotes, "2n");
 });
 
 thunder.addEventListener("click", function() {
     // const note = pickRandomNote(thunderNotes);
 
     // synth.triggerAttackRelease(note, "8n");
-    createFallingEmoji(thunder, "⚡");
+    createFallingEmoji(thunder, "⚡", thunderNotes, "8n");
 });
 
 wind.addEventListener("click", function() {
     // const note = pickRandomNote(windNotes);
 
     // synth.triggerAttackRelease(note, "1n");
-    createFallingEmoji(wind, "🍃");
+    createFallingEmoji(wind, "🍃", windNotes, "1n");
 });
 
 drum.addEventListener("click", function (){
