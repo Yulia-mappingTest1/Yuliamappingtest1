@@ -107,7 +107,7 @@ wind.addEventListener("click", function() {
 drum.addEventListener("click", function (){
     const note = pickRandomNote(drumNotes);
 
-   synth.triggerAttackRelease(note, "16n");
+   drumSynth.triggerAttackRelease(note, "16n");
    createFallingEmoji(drum, "🥁");
 });
 
