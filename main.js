@@ -21,15 +21,15 @@ const reverb = new Tone.Reverb(8).toDestination();
 reverb.wet.value = 0.8;
 
 // create synth
-const synth = new Tone.Synth({
+const synth = new Tone.PolySynth(Tone.Synth, {
     oscillator: {
-        type: "sine"
+        type: "triangle"
     },
     envelope: {
-        attack: 1,
-        decay: 0.2,
-        sustain: 0.6,
-        release: 5
+        attack: 0.01,
+        decay: 0.3,
+        sustain: 0.2,
+        release: 1.5
     }
 
 }).connect(reverb);
@@ -41,29 +41,61 @@ const drumSynth = new Tone.MembraneSynth().toDestination();
 
 
 // arrays for random pitch.
-const sunNotes=[ "C4", "D4", "E4", "G4", "A4",
-    "C5", "D5", "E5", "G5", "A5",
-    "C6", "E6"];
-const rainNotes = [
-    "D3", "E3", "G3", "A3", "B3",
-    "D4", "E4", "G4", "A4", "B4",
-    "D5", "E5"
-];
-const thunderNotes = [
-    "C1", "D1", "E1", "G1", "A1",
-    "C2", "D2", "E2", "G2", "A2",
-    "C3", "D3"
+// const sunNotes=[ "C4", "D4", "E4", "G4", "A4",
+//     "C5", "D5", "E5", "G5", "A5",
+//     "C6", "E6"];
+// const rainNotes = [
+//     "D3", "E3", "G3", "A3", "B3",
+//     "D4", "E4", "G4", "A4", "B4",
+//     "D5", "E5"
+// ];
+// const thunderNotes = [
+//     "C1", "D1", "E1", "G1", "A1",
+//     "C2", "D2", "E2", "G2", "A2",
+//     "C3", "D3"
+// ];
+//
+// const windNotes = [
+//     "A3", "B3", "C4", "D4", "E4",
+//     "F4", "G4", "A4", "B4", "C5",
+//     "D5", "E5", "G5"
+// ];
+//
+// const drumNotes = [
+//     "C1", "C2", "D1", "D2", "E1",
+//     "G1", "G2", "A1", "A2", "C3"
+// ];
+
+
+// Random chords
+
+const sunChords = [
+    ["C4", "E4", "G4"],
+    ["D4", "F4", "A4"],
+    ["E4", "G4", "B4"],
+    ["G4", "B4", "D5"],
+    ["A4", "C5", "E5"]
 ];
 
-const windNotes = [
-    "A3", "B3", "C4", "D4", "E4",
-    "F4", "G4", "A4", "B4", "C5",
-    "D5", "E5", "G5"
+const rainChords = [
+    ["D3", "F3", "A3"],
+    ["E3", "G3", "B3"],
+    ["A3", "C4", "E4"],
+    ["B3", "D4", "F4"]
 ];
 
-const drumNotes = [
-    "C1", "C2", "D1", "D2", "E1",
-    "G1", "G2", "A1", "A2", "C3"
+const thunderChords = [
+    ["C2", "G2", "C3"],
+    ["D2", "A2", "D3"],
+    ["E2", "B2", "E3"],
+    ["G1", "D2", "G2"]
+];
+
+const windChords = [
+    ["A3", "C4", "E4"],
+    ["B3", "D4", "F4"],
+    ["D4", "G4", "A4"],
+    ["E4", "A4", "B4"]
 ];
 
 
@@ -91,28 +123,28 @@ introDialogClose.addEventListener('click', async function (){
 
 // add click events to weather elements
 sun.addEventListener ("click", function() {
-    const note = pickRandomNote(sunNotes);
+    const note = pickRandomNote(sunChords);
 
     synth.triggerAttackRelease(note, "4n");
     createFallingEmoji(sun,"☀");
 });
 
 rain.addEventListener ("click", function() {
-    const note = pickRandomNote(rainNotes);
+    const note = pickRandomNote(rainChords);
 
     synth.triggerAttackRelease(note, "2n");
     createFallingEmoji(rain, "💧");
 });
 
 thunder.addEventListener("click", function() {
-    const note = pickRandomNote(thunderNotes);
+    const note = pickRandomNote(thunderChords);
 
     synth.triggerAttackRelease(note, "8n");
     createFallingEmoji(thunder, "⚡");
 });
 
 wind.addEventListener("click", function() {
-    const note = pickRandomNote(windNotes);
+    const note = pickRandomNote(windChords);
 
     synth.triggerAttackRelease(note, "1n");
     createFallingEmoji(wind, "🍃");
