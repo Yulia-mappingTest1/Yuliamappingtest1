@@ -114,7 +114,7 @@ drum.addEventListener("click", function (){
 
 
 //Visual: create emoji when sections are clicked.
-function createFallingEmoji(container, emoji) {
+function createFallingEmoji(container, emoji, notes, duration) {
     const fallingEmoji = document.createElement('div');
     fallingEmoji.classList.add('fallingEmoji');
     fallingEmoji.textContent = emoji;
@@ -128,6 +128,8 @@ function createFallingEmoji(container, emoji) {
 // Delete emoji when if falls off the drum
 
     fallingEmoji.addEventListener('animationend', function() {
+        const note = pickRandomNote(notes);
+        synth.triggerAttackRelease(note, duration);
         playDrumSound();
         showDrumHit();
         fallingEmoji.remove();
