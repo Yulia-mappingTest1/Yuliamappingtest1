@@ -61,10 +61,10 @@ const drumSynth = new Tone.MembraneSynth().toDestination();
 //     "D5", "E5", "G5"
 // ];
 //
-// const drumNotes = [
-//     "C1", "C2", "D1", "D2", "E1",
-//     "G1", "G2", "A1", "A2", "C3"
-// ];
+const drumNotes = [
+    "C1", "C2", "D1", "D2", "E1",
+    "G1", "G2", "A1", "A2", "C3"
+];
 
 
 // Random chords
