@@ -157,7 +157,7 @@ function showDrumHit(){
     drum.addEventListener('animationend', function() {
         drum.classList.remove('drumHit');
     }, {once: true});
-    createFallingEmoji(drum, "🥁");
+    // createFallingEmoji(drum, "🥁");
 }
 
 
