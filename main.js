@@ -15,8 +15,18 @@ const thunder = document.getElementById('thunderContainer');
 const wind = document.getElementById('windContainer');
 const drum = document.getElementById('drumContainer');
 
-// create synth
-const synth = new Tone.Synth().toDestination();
+// create synth (simulate piano)
+const synth = new Tone.PolySynth(Tone.Synth, {
+    oscillator: {
+        type: "triangle"
+    },
+    envelope: {
+        attack: 0.01,
+        decay: 0.3,
+        sustain: 0.2,
+        release: 1.5
+    }
+}).toDestination();
 // create drum synth
 const drumSynth = new Tone.MembraneSynth().toDestination();
 
