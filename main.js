@@ -108,7 +108,7 @@ drum.addEventListener("click", function (){
     const note = pickRandomNote(drumNotes);
 
    drumSynth.triggerAttackRelease(note, "16n");
-   createFallingEmoji(drum, "🥁");
+
 });
 
 
@@ -128,8 +128,8 @@ function createFallingEmoji(container, emoji) {
 // Delete emoji when if falls off the drum
 
     fallingEmoji.addEventListener('animationend', function() {
-        // playDrumSound();
-        // showDrumHit();
+        playDrumSound();
+        showDrumHit();
         fallingEmoji.remove();
     });
 
@@ -143,10 +143,10 @@ function pickRandomNote(notes) {
 
 // function to play drum
 
-// function playDrumSound() {
-//     const note = pickRandomNote(drumNotes);
-//     drumSynth.triggerAttackRelease(note,"16n");
-// }
+function playDrumSound() {
+    const note = pickRandomNote(drumNotes);
+    drumSynth.triggerAttackRelease(note,"16n");
+}
 
 
 // show animation when the falling Emoji hit the Drum
@@ -157,6 +157,7 @@ function showDrumHit(){
     drum.addEventListener('animationend', function() {
         drum.classList.remove('drumHit');
     }, {once: true});
+    createFallingEmoji(drum, "🥁");
 }
 
 
