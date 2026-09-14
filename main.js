@@ -77,31 +77,31 @@ introDialogClose.addEventListener('click', async function (){
 
 // add click events to weather elements
 sun.addEventListener ("click", function() {
-    // const note = pickRandomNote(sunNotes);
+    const note = pickRandomNote(sunNotes);
 
-    // synth.triggerAttackRelease(note, "4n");
-    createFallingEmoji(sun,"☀", sunNotes, "4n");
+    synth.triggerAttackRelease(note, "4n");
+    createFallingEmoji(sun,"☀");
 });
 
 rain.addEventListener ("click", function() {
-    // const note = pickRandomNote(rainNotes);
+    const note = pickRandomNote(rainNotes);
 
-    // synth.triggerAttackRelease(note, "2n");
-    createFallingEmoji(rain, "💧", rainNotes, "2n");
+    synth.triggerAttackRelease(note, "2n");
+    createFallingEmoji(rain, "💧");
 });
 
 thunder.addEventListener("click", function() {
-    // const note = pickRandomNote(thunderNotes);
+    const note = pickRandomNote(thunderNotes);
 
-    // synth.triggerAttackRelease(note, "8n");
-    createFallingEmoji(thunder, "⚡", thunderNotes, "8n");
+    synth.triggerAttackRelease(note, "8n");
+    createFallingEmoji(thunder, "⚡");
 });
 
 wind.addEventListener("click", function() {
-    // const note = pickRandomNote(windNotes);
+    const note = pickRandomNote(windNotes);
 
-    // synth.triggerAttackRelease(note, "1n");
-    createFallingEmoji(wind, "🍃", windNotes, "1n");
+    synth.triggerAttackRelease(note, "1n");
+    createFallingEmoji(wind, "🍃");
 });
 
 drum.addEventListener("click", function (){
@@ -114,7 +114,7 @@ drum.addEventListener("click", function (){
 
 
 //Visual: create emoji when sections are clicked.
-function createFallingEmoji(container, emoji, notes, duration) {
+function createFallingEmoji(container, emoji) {
     const fallingEmoji = document.createElement('div');
     fallingEmoji.classList.add('fallingEmoji');
     fallingEmoji.textContent = emoji;
@@ -128,8 +128,8 @@ function createFallingEmoji(container, emoji, notes, duration) {
 // Delete emoji when if falls off the drum
 
     fallingEmoji.addEventListener('animationend', function() {
-        const note = pickRandomNote(notes);
-        synth.triggerAttackRelease(note, duration);
+        // const note = pickRandomNote(notes);
+        // synth.triggerAttackRelease(note, duration);
         playDrumSound();
         showDrumHit();
         fallingEmoji.remove();
