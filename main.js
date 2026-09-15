@@ -105,7 +105,7 @@ rain.addEventListener ("click", function() {
 thunder.addEventListener("click", function() {
     const note = pickRandomNote(thunderNotes);
 
-    drumSynth.triggerAttackRelease(note, "8n");
+    synth.triggerAttackRelease(note, "8n");
     createFallingEmoji(thunder, "⚡");
 });
 
@@ -119,7 +119,7 @@ wind.addEventListener("click", function() {
 drum.addEventListener("click", function (){
     const note = pickRandomNote(drumNotes);
 
-   synth.triggerAttackRelease(note, "16n");
+   drumSynth.triggerAttackRelease(note, "16n");
 });
 
 
