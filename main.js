@@ -28,7 +28,19 @@ const synth = new Tone.PolySynth(Tone.Synth, {
     }
 }).toDestination();
 // create drum synth
-const drumSynth = new Tone.MembraneSynth().toDestination();
+const drumSynth = new Tone.MembraneSynth({
+    pitchDecay: 0.03,
+    octaves: 4,
+    oscillator: {
+        type: "sine"
+    },
+    envelope: {
+        attack: 0.001,
+        decay: 0.25,
+        sustain: 0,
+        release: 0.1
+    }
+}).toDestination();
 
 
 
