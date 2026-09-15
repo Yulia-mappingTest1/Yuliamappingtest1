@@ -106,7 +106,7 @@ thunder.addEventListener("click", function() {
     const note = pickRandomNote(thunderNotes);
 
     drumSynth.triggerAttackRelease(note, "8n");
-    createFallingEmoji(thunder, "z");
+    createFallingEmoji(thunder, "⚡");
 });
 
 wind.addEventListener("click", function() {
