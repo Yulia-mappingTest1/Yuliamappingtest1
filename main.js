@@ -16,6 +16,21 @@ const wind = document.getElementById('windContainer');
 const drum = document.getElementById('drumContainer');
 
 
+// find volume slider
+const volumeSlider = document.getElementById('volumeSlider');
+
+
+volumeSlider.addEventListener('input', function() {
+    const volume = volumeSlider.value;
+    const VolumeDb = (volume - 100) / 2;
+
+    Tone.Destination.volume.value = VolumeDb;
+})
+
+
+
+
+
 // create reverb
 const reverb = new Tone.Reverb(8).toDestination();
 reverb.wet.value = 0.8;

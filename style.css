@@ -133,6 +133,24 @@ dialog[open] {
 }
 
 
+.sliderWrap {
+    position: relative;
+    width: 7rem;
+}
+
+#volumeSlider {
+    width: 100%;
+}
+
+#volumeHand {
+    position: absolute;
+    top: 1.5rem;
+    width: 2rem;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+
 #volumeSlider {
     width: 7rem;
     appearance: none;
@@ -170,6 +188,14 @@ dialog[open] {
     background: white;
     border: 2px solid black;
     border-radius: 50%;
+}
+
+.volumeFinger {
+    font-size: 2rem;
+    line-height: 1;
+    transform: rotate(-20deg);
+    user-select: none;
+    pointer-events: none;
 }
 
 
